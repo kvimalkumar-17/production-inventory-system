@@ -2,6 +2,7 @@ import { useState } from "react";
 function Inventory() {
     const [search, setSearch] = useState("");
     const [showForm, setShowForm] = useState(false);
+    const [selectedItem, setSelectedItem] = useState("");
   return (
     <div className="p-8">
     <div className="flex justify-between items-center mb-10">
@@ -56,9 +57,15 @@ function Inventory() {
     />
 
     <div className="flex gap-3">
-      <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
-        Save Item
-      </button>
+     <button
+  onClick={() => {
+    alert("Inventory Item Added Successfully ✅");
+    setShowForm(false);
+  }}
+  className="bg-green-500 text-white px-4 py-2 rounded-lg"
+>
+  Save Item
+</button>
 
       <button
         onClick={() => setShowForm(false)}
@@ -100,7 +107,11 @@ function Inventory() {
         <h2 className="text-2xl font-bold text-[#0F172A] mb-6">
           Raw Materials Inventory
         </h2>
-
+{selectedItem && (
+  <div className="bg-blue-50 border border-blue-200 p-4 rounded-xl mb-4">
+    <strong>Selected Item:</strong> {selectedItem}
+  </div>
+)}
         <table className="w-full">
           <thead>
         <tr className="border-b">
@@ -120,13 +131,19 @@ function Inventory() {
   <td className="text-green-600">Available</td>
 
   <td className="w-40">
-    <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg mr-2">
-      Edit
-    </button>
+    <button
+  onClick={() => setSelectedItem("Steel Rod")}
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg mr-2"
+>
+  Edit
+</button>
 
-    <button className="bg-red-100 text-red-600 px-3 py-1 rounded-lg">
-      Delete
-    </button>
+    <button
+  onClick={() => alert("Steel Rod Deleted")}
+  className="bg-red-100 text-red-600 px-3 py-1 rounded-lg"
+>
+  Delete
+</button>
   </td>
 </tr>
               <tr className="border-b bg-red-50">
@@ -136,13 +153,19 @@ function Inventory() {
   <td className="text-red-600">Low Stock</td>
 
   <td className="w-40">
-    <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg mr-2">
-      Edit
-    </button>
+   <button
+  onClick={() => setSelectedItem("Industrial Paint")}
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg mr-2"
+>
+  Edit
+</button>
 
-    <button className="bg-red-100 text-red-600 px-3 py-1 rounded-lg">
-      Delete
-    </button>
+    <button
+  onClick={() => alert("Industrial Paint Deleted")}
+  className="bg-red-100 text-red-600 px-3 py-1 rounded-lg"
+>
+  Delete
+</button>
   </td>
 </tr>
            <tr>
@@ -152,13 +175,19 @@ function Inventory() {
   <td className="text-green-600">Available</td>
 
   <td className="w-40">
-    <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg mr-2">
-      Edit
-    </button>
+   <button
+  onClick={() => setSelectedItem("Paint Drum")}
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg mr-2"
+>
+  Edit
+</button>
 
-    <button className="bg-red-100 text-red-600 px-3 py-1 rounded-lg">
-      Delete
-    </button>
+   <button
+  onClick={() => alert("Paint Drum Deleted")}
+  className="bg-red-100 text-red-600 px-3 py-1 rounded-lg"
+>
+  Delete
+</button>
   </td>
 </tr>
           </tbody>
