@@ -15,6 +15,7 @@ import {
 import { useState } from "react";
 import Inventory from "./Inventory";
 import ProductionOrders from "./ProductionOrders";
+import RawMaterials from "./RawMaterials";
 function Dashboard() {
     const [activePage, setActivePage] = useState("dashboard");
   return (
@@ -51,9 +52,16 @@ function Dashboard() {
   Inventory
 </li>
 
-    <li className="px-4 py-3 hover:bg-slate-700 rounded-xl cursor-pointer">
-      Raw Materials
-    </li>
+  <li
+  onClick={() => setActivePage("rawmaterials")}
+  className={`px-4 py-3 rounded-xl cursor-pointer ${
+    activePage === "rawmaterials"
+      ? "bg-[#C8A96B] text-[#0F172A] font-semibold"
+      : "hover:bg-slate-700"
+  }`}
+>
+  Raw Materials
+</li>
 <li
   onClick={() => setActivePage("production")}
   className={`px-4 py-3 rounded-xl cursor-pointer ${
@@ -118,6 +126,8 @@ text-[#0F172A] w-64"
   <Inventory />
 ) : activePage === "production" ? (
   <ProductionOrders />
+) : activePage === "rawmaterials" ? (
+  <RawMaterials />
 ) : (
   <>
         <h2 className="text-4xl font-bold text-[#0F172A] mb-8">
