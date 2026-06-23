@@ -1,5 +1,6 @@
 import { useState } from "react";
 function Employees() {
+    const [selectedEmployee, setSelectedEmployee] = useState("");
     const [showForm, setShowForm] = useState(false);
   return (
     <div className="p-8">
@@ -111,7 +112,11 @@ function Employees() {
   <h2 className="text-2xl font-bold mb-6">
     Employee Directory
   </h2>
-
+{selectedEmployee && (
+  <div className="bg-blue-50 border border-blue-200 p-4 rounded-xl mb-4">
+    <strong>Selected Employee:</strong> {selectedEmployee}
+  </div>
+)}
   <table className="w-full">
 
     <thead>
@@ -136,9 +141,14 @@ function Employees() {
         <td>96%</td>
         <td className="text-green-600">Present</td>
         <td>
-          <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
-            View
-          </button>
+        <button
+  onClick={() =>
+    setSelectedEmployee("EMP001 - John Smith - Production Manager")
+  }
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg"
+>
+  View
+</button>
         </td>
       </tr>
 
@@ -150,9 +160,14 @@ function Employees() {
         <td>92%</td>
         <td className="text-green-600">Present</td>
         <td>
-          <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
-            View
-          </button>
+          <button
+  onClick={() =>
+    setSelectedEmployee("EMP002 - Sarah Johnson - Quality Analyst")
+  }
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg"
+>
+  View
+</button>
         </td>
       </tr>
 
@@ -164,9 +179,14 @@ function Employees() {
         <td>88%</td>
         <td className="text-yellow-600">On Leave</td>
         <td>
-          <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
-            View
-          </button>
+          <button
+  onClick={() =>
+    setSelectedEmployee("EMP003 - Michael Lee - Store Supervisor")
+  }
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg"
+>
+  View
+</button>
         </td>
       </tr>
 
