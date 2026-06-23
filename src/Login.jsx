@@ -1,6 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
-
+import { useNavigate } from "react-router-dom";
 function App() {
+    const navigate = useNavigate();
   return (
   <div className="min-h-screen bg-[#F5F0E8]">
 
@@ -110,22 +111,11 @@ from one centralized platform.
               </button>
 
             </div>
-            <button
-className="
-w-full
-bg-[#0F172A]
-hover:bg-[#1E293B]
-text-white
-py-4
-rounded-xl
-font-semibold
-shadow-lg
-hover:scale-105
-transition
-duration-300
-"
+           <button
+  onClick={() => navigate("/dashboard")}
+  className="w-full bg-[#0F172A] text-white py-4 rounded-xl hover:bg-[#1E293B] transition duration-300 font-semibold"
 >
-Login
+  Login
 </button>
 
             <div className="text-center my-5 text-gray-400">
