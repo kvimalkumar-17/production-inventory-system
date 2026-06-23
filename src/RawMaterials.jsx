@@ -80,9 +80,15 @@ function RawMaterials() {
 
     <div className="flex gap-3">
 
-      <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
-        Save Material
-      </button>
+     <button
+  onClick={() => {
+    alert("Material Added Successfully ✅");
+    setShowForm(false);
+  }}
+  className="bg-green-500 text-white px-4 py-2 rounded-lg"
+>
+  Save Material
+</button>
 
       <button
         onClick={() => setShowForm(false)}
