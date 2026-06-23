@@ -95,6 +95,44 @@ function RawMaterials() {
 
   </div>
 )}
+<div className="bg-white rounded-3xl shadow-lg p-8 mb-8">
+
+  <h2 className="text-2xl font-bold mb-6">
+    Material Consumption
+  </h2>
+
+  <div className="grid grid-cols-3 gap-6">
+
+    <div className="bg-blue-50 p-5 rounded-2xl">
+      <h3 className="font-bold">Steel Rod</h3>
+      <p>Available: 1000 kg</p>
+      <p>Consumed: 250 kg</p>
+      <p className="text-green-600 font-semibold">
+        Remaining: 750 kg
+      </p>
+    </div>
+
+    <div className="bg-yellow-50 p-5 rounded-2xl">
+      <h3 className="font-bold">Industrial Paint</h3>
+      <p>Available: 500 L</p>
+      <p>Consumed: 120 L</p>
+      <p className="text-green-600 font-semibold">
+        Remaining: 380 L
+      </p>
+    </div>
+
+    <div className="bg-green-50 p-5 rounded-2xl">
+      <h3 className="font-bold">Chemical Mix</h3>
+      <p>Available: 300 L</p>
+      <p>Consumed: 90 L</p>
+      <p className="text-green-600 font-semibold">
+        Remaining: 210 L
+      </p>
+    </div>
+
+  </div>
+
+</div>
 <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-xl mb-8">
 
   <h3 className="font-bold text-red-600 mb-2">
