@@ -1,6 +1,7 @@
 import { useState } from "react";
 function Inventory() {
     const [search, setSearch] = useState("");
+    const [showForm, setShowForm] = useState(false);
   return (
     <div className="p-8">
     <div className="flex justify-between items-center mb-10">
@@ -19,13 +20,55 @@ function Inventory() {
       className="border border-gray-400 rounded-xl px-4 py-3 w-72"
     />
 
-    <button className="bg-[#C8A96B] text-white px-6 py-3 rounded-xl">
-      + Add Item
-    </button>
+  <button
+  onClick={() => setShowForm(true)}
+  className="bg-[#C8A96B] text-white px-6 py-3 rounded-xl hover:bg-[#A67C3D] transition-all duration-300"
+>
+  + Add Item
+</button>
 
   </div>
+  
 
 </div>
+{showForm && (
+  <div className="bg-white p-6 rounded-2xl shadow mb-8">
+    <h3 className="text-xl font-bold mb-4">
+      Add New Inventory Item
+    </h3>
+
+    <input
+      type="text"
+      placeholder="Item Name"
+      className="border p-3 rounded-lg w-full mb-3"
+    />
+
+    <input
+      type="text"
+      placeholder="Category"
+      className="border p-3 rounded-lg w-full mb-3"
+    />
+
+    <input
+      type="number"
+      placeholder="Stock Quantity"
+      className="border p-3 rounded-lg w-full mb-3"
+    />
+
+    <div className="flex gap-3">
+      <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
+        Save Item
+      </button>
+
+      <button
+        onClick={() => setShowForm(false)}
+        className="bg-red-500 text-white px-4 py-2 rounded-lg"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+)}
 
 <div className="grid grid-cols-4 gap-6 mb-10">
 
