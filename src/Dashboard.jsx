@@ -20,6 +20,7 @@ import Employees from "./Employees";
 import Reports from "./Reports";
 import Settings from "./Settings";
 function Dashboard() {
+    const [showAdmin, setShowAdmin] = useState(false);
     const [activePage, setActivePage] = useState("dashboard");
   return (
     <div className="min-h-screen bg-[#F5F1EB] flex">
@@ -131,18 +132,36 @@ function Dashboard() {
 text-[#0F172A] w-64"
   />
 
-  <button className="bg-white text-[#0F172A] px-4 py-2 rounded-xl">
-    🔔
-  </button>
+  <button
+  onClick={() => alert("No New Notifications")}
+>
+  🔔
+</button>
 
-  <div className="bg-[#C8A96B] text-[#0F172A] px-4 py-2 rounded-xl font-semibold">
-    Admin
-  </div>
+ <div
+  onClick={() => setShowAdmin(!showAdmin)}
+  className="bg-[#C8A96B] text-[#0F172A] px-4 py-2 rounded-xl font-semibold cursor-pointer"
+>
+  👤 Admin
+</div>
 
 </div>
 
       </nav>
+{showAdmin && (
+  <div className="bg-white p-6 rounded-2xl shadow-lg m-6">
 
+    <h2 className="text-2xl font-bold mb-4">
+      Administrator Profile
+    </h2>
+
+    <p><strong>Name:</strong> System Admin</p>
+    <p><strong>Email:</strong> admin@seolvia.com</p>
+    <p><strong>Role:</strong> Administrator</p>
+    <p><strong>Last Login:</strong> Today 09:45 AM</p>
+
+  </div>
+)}
       {/* Dashboard Content */}
 
       <div className="p-8">
