@@ -1,6 +1,7 @@
 import { useState } from "react";
 function RawMaterials() {
-    const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [selectedMaterial, setSelectedMaterial] = useState("");
   return (
     <div className="p-8">
 
@@ -155,7 +156,11 @@ function RawMaterials() {
   <h2 className="text-2xl font-bold mb-6">
     Raw Materials Inventory
   </h2>
-
+{selectedMaterial && (
+  <div className="bg-blue-50 border border-blue-200 p-4 rounded-xl mb-4">
+    <strong>Selected Material:</strong> {selectedMaterial}
+  </div>
+)}
   <table className="w-full">
 
     <thead>
@@ -185,9 +190,12 @@ function RawMaterials() {
   <td className="text-green-600">Available</td>
 
   <td>
-    <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
-      View
-    </button>
+    <button
+  onClick={() => setSelectedMaterial("Steel Rod")}
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg"
+>
+  View
+</button>
   </td>
 </tr>
 <tr className="border-b bg-red-50">
@@ -201,9 +209,13 @@ function RawMaterials() {
   <td className="text-red-600">Low Stock</td>
 
   <td>
-    <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
-      View
-    </button>
+    <button
+  onClick={() => setSelectedMaterial("Industrial Paint")}
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg"
+>
+  View
+
+</button>
   </td>
 </tr>
 
@@ -218,9 +230,12 @@ function RawMaterials() {
   <td className="text-red-600">Low Stock</td>
 
   <td>
-    <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
-      View
-    </button>
+    <button
+  onClick={() => setSelectedMaterial("Chemical Mix")}
+  className="bg-blue-100 text-blue-600 px-3 py-1 rounded-lg"
+>
+  View
+</button>
   </td>
 </tr>
 
