@@ -81,9 +81,15 @@ function Employees() {
 
     <div className="flex gap-3">
 
-      <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
-        Save Employee
-      </button>
+      <button
+  onClick={() => {
+    alert("Employee Added Successfully ✅");
+    setShowForm(false);
+  }}
+  className="bg-green-500 text-white px-4 py-2 rounded-lg"
+>
+  Save Employee
+</button>
 
       <button
         onClick={() => setShowForm(false)}
