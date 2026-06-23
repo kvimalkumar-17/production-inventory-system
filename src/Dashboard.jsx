@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 import Inventory from "./Inventory";
+import ProductionOrders from "./ProductionOrders";
 function Dashboard() {
     const [activePage, setActivePage] = useState("dashboard");
   return (
@@ -53,10 +54,16 @@ function Dashboard() {
     <li className="px-4 py-3 hover:bg-slate-700 rounded-xl cursor-pointer">
       Raw Materials
     </li>
-
-    <li className="px-4 py-3 hover:bg-slate-700 rounded-xl cursor-pointer">
-      Production Orders
-    </li>
+<li
+  onClick={() => setActivePage("production")}
+  className={`px-4 py-3 rounded-xl cursor-pointer ${
+    activePage === "production"
+      ? "bg-[#C8A96B] text-[#0F172A] font-semibold"
+      : "hover:bg-slate-700"
+  }`}
+>
+  Production Orders
+</li>
 
     <li className="px-4 py-3 hover:bg-slate-700 rounded-xl cursor-pointer">
       Employees
@@ -109,6 +116,8 @@ text-[#0F172A] w-64"
       <div className="p-8">
 {activePage === "inventory" ? (
   <Inventory />
+) : activePage === "production" ? (
+  <ProductionOrders />
 ) : (
   <>
         <h2 className="text-4xl font-bold text-[#0F172A] mb-8">
