@@ -1,10 +1,4 @@
 import {
-  FaBoxes,
-  FaExclamationTriangle,
-  FaIndustry,
-  FaClipboardCheck
-} from "react-icons/fa";
-import {
   ResponsiveContainer,
   BarChart,
   Bar,
@@ -12,7 +6,16 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
+import {
+  FaBoxes,
+  FaExclamationTriangle,
+  FaIndustry,
+  FaClipboardCheck
+} from "react-icons/fa";
+import { useState } from "react";
+import Inventory from "./Inventory";
 function Dashboard() {
+    const [activePage, setActivePage] = useState("dashboard");
   return (
     <div className="min-h-screen bg-[#F5F1EB] flex">
 {/* Sidebar */}
@@ -25,13 +28,27 @@ function Dashboard() {
 
   <ul className="space-y-4">
 
-    <li className="bg-[#C8A96B] text-[#0F172A] px-4 py-3 rounded-xl font-semibold">
-      Dashboard
-    </li>
+   <li
+  onClick={() => setActivePage("dashboard")}
+  className={`px-4 py-3 rounded-xl cursor-pointer ${
+    activePage === "dashboard"
+      ? "bg-[#C8A96B] text-[#0F172A] font-semibold"
+      : "hover:bg-slate-700"
+  }`}
+>
+  Dashboard
+</li>
 
-    <li className="px-4 py-3 hover:bg-slate-700 rounded-xl cursor-pointer">
-      Inventory
-    </li>
+<li
+  onClick={() => setActivePage("inventory")}
+  className={`px-4 py-3 rounded-xl cursor-pointer ${
+    activePage === "inventory"
+      ? "bg-[#C8A96B] text-[#0F172A] font-semibold"
+      : "hover:bg-slate-700"
+  }`}
+>
+  Inventory
+</li>
 
     <li className="px-4 py-3 hover:bg-slate-700 rounded-xl cursor-pointer">
       Raw Materials
@@ -90,7 +107,10 @@ text-[#0F172A] w-64"
       {/* Dashboard Content */}
 
       <div className="p-8">
-
+{activePage === "inventory" ? (
+  <Inventory />
+) : (
+  <>
         <h2 className="text-4xl font-bold text-[#0F172A] mb-8">
           Dashboard Overview
         </h2>
@@ -312,14 +332,13 @@ cursor-pointer">
       </div>
     </div>
 
-  </div>
-
+ </div>
 </div>
-</div>
-</div>
+  </>
+)}
       </div>
-
-
+      </div>
+    </div>
   );
 }
 export default Dashboard;
