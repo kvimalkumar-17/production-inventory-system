@@ -118,6 +118,16 @@ from one centralized platform.
   Login
 </button>
 
+            <div className="text-center mt-4">
+              <span className="text-sm text-gray-500">Don't have an account? </span>
+              <button
+                onClick={() => navigate("/signup")}
+                className="text-[#0F172A] font-semibold hover:underline"
+              >
+                Sign up
+              </button>
+            </div>
+
             <div className="text-center my-5 text-gray-400">
               OR
             </div>
